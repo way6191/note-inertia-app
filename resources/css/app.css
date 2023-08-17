@@ -1,3 +1,12 @@
+@import "./fontawesome/css/fontawesome.css";
+@import "./fontawesome/css/solid.css";
+@import "./fontawesome/css/regular.css";
+@import "./fontawesome/css/brands.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#app {
+    @apply h-screen flex flex-col;
+}
