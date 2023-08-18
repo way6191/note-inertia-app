@@ -1,7 +1,10 @@
 <script>
-    import { useForm } from "@inertiajs/svelte";
     export let navs;
     export let navMenu;
+
+    import { page, useForm } from "@inertiajs/svelte";
+    const urls = decodeURI($page.url).split("/");
+    const activeBook = urls[3];
 
     let isOpen = false;
 
@@ -30,6 +33,8 @@
     {#each navs as navBook}
         <li class="text-base">
             <a
+                class={activeBook == navBook.book_name &&
+                    "bg-primary text-primary-content"}
                 href={route("book.show", {
                     menuName: navMenu,
                     bookName: navBook.book_name,

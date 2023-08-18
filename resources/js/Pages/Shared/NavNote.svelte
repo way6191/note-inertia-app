@@ -2,6 +2,10 @@
     export let navs;
     export let navMenu;
     export let navBook;
+
+    import { page } from "@inertiajs/svelte";
+    const urls = decodeURI($page.url).split("/");
+    const activeNote = urls[4];
 </script>
 
 <ul class="menu bg-base-200 w-60 rounded-r-lg hidden sm:block flex-none">
@@ -20,6 +24,8 @@
     {#each navs as navNote}
         <li>
             <a
+                class={activeNote == navNote.note_name &&
+                    "bg-secondary text-secondary-content"}
                 href={route("note.show", {
                     menuName: navMenu,
                     bookName: navBook,

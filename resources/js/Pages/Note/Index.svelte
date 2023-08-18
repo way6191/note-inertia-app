@@ -8,9 +8,9 @@
     import NavBook from "../Shared/NavBook.svelte";
     import NavNote from "../Shared/NavNote.svelte";
 
-    let urls = decodeURI($page.url).split("/");
-    $: navMenu = urls[2];
-    $: navBook = urls[3];
+    const urls = decodeURI($page.url).split("/");
+    const navMenu = urls[2];
+    const navBook = urls[3];
 
     export let books;
     export let notes;
