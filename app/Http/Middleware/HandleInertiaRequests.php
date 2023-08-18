@@ -2,8 +2,9 @@
 
 namespace App\Http\Middleware;
 
-use Illuminate\Http\Request;
+use App\Models\Menu;
 use Inertia\Middleware;
+use Illuminate\Http\Request;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -37,7 +38,71 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request): array
     {
         return array_merge(parent::share($request), [
-            //
+            'menus' => Menu::select('menu_name')
+                ->get(),
+
+            'lightThemes' => [
+                "light",
+                // "dark",
+                "cupcake",
+                "bumblebee",
+                "emerald",
+                "corporate",
+                // "synthwave",
+                "retro",
+                "cyberpunk",
+                "valentine",
+                // "halloween",
+                "garden",
+                // "forest",
+                "aqua",
+                "lofi",
+                "pastel",
+                "fantasy",
+                "wireframe",
+                // "black",
+                // "luxury",
+                // "dracula",
+                "cmyk",
+                "autumn",
+                // "business",
+                "acid",
+                "lemonade",
+                // "night",
+                // "coffee",
+                "winter",
+            ],
+            'darkThemes' => [
+                // "light",
+                "dark",
+                // "cupcake",
+                // "bumblebee",
+                // "emerald",
+                // "corporate",
+                "synthwave",
+                // "retro",
+                // "cyberpunk",
+                // "valentine",
+                "halloween",
+                // "garden",
+                "forest",
+                // "aqua",
+                // "lofi",
+                // "pastel",
+                // "fantasy",
+                // "wireframe",
+                "black",
+                "luxury",
+                "dracula",
+                // "cmyk",
+                // "autumn",
+                "business",
+                // "acid",
+                // "lemonade",
+                "night",
+                "coffee",
+                // "winter",
+            ],
         ]);
     }
 }
