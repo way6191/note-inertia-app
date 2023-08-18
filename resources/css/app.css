@@ -10,3 +10,96 @@
 #app {
     @apply h-screen flex flex-col;
 }
+
+/* scroll bar */
+div::-webkit-scrollbar {
+    width: 10px;
+}
+
+div::-webkit-scrollbar-thumb {
+    background: hsl(var(--a));
+    border-radius: 10px;
+}
+
+/* markdown */
+article h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+}
+article p {
+    margin-bottom: 8px !important;
+}
+article ul {
+    margin-bottom: 8px !important;
+}
+article h1, h2, h3, h4, h5, h6 {
+    margin-top: 16px !important;
+    margin-bottom: 8px !important;
+}
+article h1 {
+    font-size: 1.5rem; /* 24px */
+    line-height: 2rem; /* 32px */
+    font-weight: 700;
+}
+article h2 {
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.75rem; /* 28px */
+    font-weight: 600;
+}
+article h3 {
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.75rem; /* 28px */
+    font-weight: 600;
+}
+article h4 {
+    font-size: 1rem; /* 16px */
+    line-height: 1.5rem; /* 24px */
+    font-weight: 500;
+}
+article h5 {
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.25rem; /* 20px */
+    font-weight: 500;
+}
+article h6 {
+    font-size: 0.75rem; /* 12px */
+    line-height: 1rem; /* 16px */
+    font-weight: 500;
+}
+article pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background-color: hsl(var(--b2));
+    border-radius: 6px;
+}
+article pre code {
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.25rem; /* 20px */
+    padding: 0;
+    background: transparent;
+}
+article ul > li{
+    list-style-type: disc;
+    list-style-position: inside;
+}
+article ol > li{
+    list-style-type: decimal;
+    list-style-position: inside;
+}
+article li > ul,ol{
+    text-indent: 2rem;
+}
+article blockquote p {
+    padding-left: 0.5rem;
+    border-left: 2px hsl(var(--in)) solid;
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.25rem; /* 20px */
+    margin-bottom: 0;
+    font-style: italic;
+    background-color: hsl(var(--b2));
+}
