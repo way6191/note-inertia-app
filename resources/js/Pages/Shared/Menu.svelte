@@ -84,10 +84,10 @@
     </div>
     <div class="navbar-end">
         <a href="#" on:click={changeTheme}>
-            <i class="text-2xl mx-1 fa-solid fa-arrows-rotate" />
+            <i class="text-2xl mx-2 fa-solid fa-arrows-rotate" />
         </a>
 
-        <label class="text-2xl mx-1 swap swap-rotate">
+        <label class="text-2xl mx-2 swap swap-rotate">
             <!-- this hidden checkbox controls the state -->
             <input type="checkbox" bind:checked={isDark} />
 
