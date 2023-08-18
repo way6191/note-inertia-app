@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('nav_folders', function (Blueprint $table) {
+        Schema::create('menus', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('header_name')->constrained()->onDelete('cascade');
-            $table->string('folder_name');
+            $table->string('menu_name');
             $table->timestamps();
         });
     }
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('nav_folders');
+        Schema::dropIfExists('menus');
     }
 };
