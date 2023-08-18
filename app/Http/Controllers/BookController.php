@@ -20,8 +20,8 @@ class BookController extends Controller
         ]);
 
         // 跳转到空笔记
-        return redirect()->action(
-            [NoteController::class, 'show'],
+        return to_route(
+            'note.show',
             [
                 'menuName' => $menuName,
                 'bookName' => $bookName,
@@ -42,8 +42,8 @@ class BookController extends Controller
             ->first();
 
         // 跳转到空笔记
-        return redirect()->action(
-            [NoteController::class, 'show'],
+        return to_route(
+            'note.show',
             [
                 'menuName' => $menuName,
                 'bookName' => $bookName,

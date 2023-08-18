@@ -18,8 +18,8 @@ class MenuController extends Controller
         ]);
 
         // 跳转到展示目录
-        return redirect()->action(
-            [MenuController::class, 'show'],
+        return to_route(
+            'menu.show',
             [
                 'menuName' => request()->menuName
             ]

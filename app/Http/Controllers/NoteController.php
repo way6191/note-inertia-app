@@ -38,6 +38,15 @@ class NoteController extends Controller
         ]);
     }
 
+    // 笔记创建
+    public function create()
+    {
+        return Inertia::render('Note/Create', [
+            'menu' => request()->menu,
+            'book' => request()->book
+        ]);
+    }
+
     // 笔记上传
     public function upload()
     {
@@ -63,8 +72,8 @@ class NoteController extends Controller
             }
 
             // 展示笔记
-            return redirect()->action(
-                [NoteController::class, 'show'],
+            return to_route(
+                'note.show',
                 [
                     'menuName' => $menu,
                     'bookName' => $book,
