@@ -35,7 +35,7 @@
     });
 
     const submitMenu = function () {
-        $menuForm.post("/note/menu/store");
+        $menuForm.post(route("menu.store"));
         $menuForm.reset();
         isOpen = false;
     };
@@ -52,7 +52,13 @@
             >
                 {#each $page.props.menus as menu}
                     <li>
-                        <a href="/note/{menu.menu_name}">{menu.menu_name}</a>
+                        <a
+                            href={route("menu.show", {
+                                menuName: menu.menu_name,
+                            })}
+                        >
+                            {menu.menu_name}
+                        </a>
                     </li>
                 {/each}
             </ul>

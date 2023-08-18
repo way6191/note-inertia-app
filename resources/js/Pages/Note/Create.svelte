@@ -12,7 +12,7 @@
     });
 
     const submitNoteFile = function () {
-        $noteFileForm.post(`/note/upload?menu=${menu}&book=${book}`);
+        $noteFileForm.post(route("note.upload", { menu, book }));
         $noteFileForm.reset();
     };
 </script>

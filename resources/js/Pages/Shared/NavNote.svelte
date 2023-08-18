@@ -8,7 +8,7 @@
     <li>
         {#if navBook != "空"}
             <a
-                href={`/note/create?menu=${navMenu}&book=${navBook}`}
+                href={route("note.create", { menu: navMenu, book: navBook })}
                 class="flex justify-center text-xs"
             >
                 <i class="fa-solid fa-plus" />
@@ -19,7 +19,13 @@
     </li>
     {#each navs as navNote}
         <li>
-            <a href={`/note/${navMenu}/${navBook}/${navNote.note_name}`}>
+            <a
+                href={route("note.show", {
+                    menuName: navMenu,
+                    bookName: navBook,
+                    noteName: navNote.note_name,
+                })}
+            >
                 <i class="fa-solid fa-file-lines" />
                 <span>{navNote.note_name}</span>
             </a>

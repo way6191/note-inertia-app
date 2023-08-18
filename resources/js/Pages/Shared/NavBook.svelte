@@ -11,7 +11,7 @@
     });
 
     const submitBook = function () {
-        $bookForm.post("/note/book/store");
+        $bookForm.post(route("book.store"));
         $bookForm.reset();
         isOpen = false;
     };
@@ -29,7 +29,12 @@
     </li>
     {#each navs as navBook}
         <li class="text-base">
-            <a href={`/note/${navMenu}/${navBook.book_name}`}>
+            <a
+                href={route("book.show", {
+                    menuName: navMenu,
+                    bookName: navBook.book_name,
+                })}
+            >
                 <i class="fa-solid fa-book" />
                 <span>{navBook.book_name}</span>
             </a>
