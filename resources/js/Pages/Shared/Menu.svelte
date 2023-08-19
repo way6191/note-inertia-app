@@ -36,7 +36,7 @@
         if (isDark) {
             const darkTheme = localStorage.getItem("darkTheme");
             let index = darkThemes.indexOf(darkTheme) + 1;
-            if (index == darkTheme.length) {
+            if (index == darkThemes.length) {
                 index = 0;
             }
             const nextTheme = darkThemes[index];
@@ -45,7 +45,7 @@
         } else {
             const lightTheme = localStorage.getItem("lightTheme");
             let index = lightThemes.indexOf(lightTheme) + 1;
-            if (index == lightTheme.length) {
+            if (index == lightThemes.length) {
                 index = 0;
             }
             const nextTheme = lightThemes[index];
