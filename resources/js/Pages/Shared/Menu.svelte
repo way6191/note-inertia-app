@@ -2,32 +2,56 @@
     import { page, useForm } from "@inertiajs/svelte";
     import Title from "./Title.svelte";
 
-    const lightThemes = $page.props.lightThemes;
-    const darkThemes = $page.props.darkThemes;
     const htmlElement = document.querySelector("html");
 
-    let themes = lightThemes;
-    let index = themes.length;
-
     let isOpen = false;
-    let isDark = false;
+    let isDark = localStorage.getItem("isDark") == "true" ? true : false;
+
+    const darkThemes = $page.props.darkThemes;
+    const lightThemes = $page.props.lightThemes;
 
     $: if (isDark) {
-        themes = darkThemes;
-        index = themes.length;
-        htmlElement.setAttribute("data-theme", themes[0]);
+        localStorage.setItem("isDark", true);
+
+        const darkTheme = localStorage.getItem("darkTheme");
+        if (darkTheme) {
+            htmlElement.setAttribute("data-theme", darkTheme);
+        } else {
+            htmlElement.setAttribute("data-theme", darkThemes[0]);
+            localStorage.setItem("darkTheme", darkThemes[0]);
+        }
     } else {
-        themes = lightThemes;
-        index = themes.length;
-        htmlElement.setAttribute("data-theme", themes[0]);
+        localStorage.setItem("isDark", false);
+
+        const lightTheme = localStorage.getItem("lightTheme");
+        if (lightTheme) {
+            htmlElement.setAttribute("data-theme", lightTheme);
+        } else {
+            htmlElement.setAttribute("data-theme", lightThemes[0]);
+            localStorage.setItem("lightTheme", lightThemes[0]);
+        }
     }
 
     const changeTheme = function () {
-        index--;
-        if (index == 0) {
-            index = themes.length;
+        if (isDark) {
+            const darkTheme = localStorage.getItem("darkTheme");
+            let index = darkThemes.indexOf(darkTheme) + 1;
+            if (index == darkTheme.length) {
+                index = 0;
+            }
+            const nextTheme = darkThemes[index];
+            localStorage.setItem("darkTheme", nextTheme);
+            htmlElement.setAttribute("data-theme", nextTheme);
+        } else {
+            const lightTheme = localStorage.getItem("lightTheme");
+            let index = lightThemes.indexOf(lightTheme) + 1;
+            if (index == lightTheme.length) {
+                index = 0;
+            }
+            const nextTheme = lightThemes[index];
+            localStorage.setItem("lightTheme", nextTheme);
+            htmlElement.setAttribute("data-theme", nextTheme);
         }
-        htmlElement.setAttribute("data-theme", themes[themes.length - index]);
     };
 
     let menuForm = useForm({

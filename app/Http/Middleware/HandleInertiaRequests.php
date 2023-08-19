@@ -38,9 +38,11 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request): array
     {
         return array_merge(parent::share($request), [
+            // 文档
             'menus' => Menu::select('menu_name')
                 ->get(),
 
+            // 可用亮色主题
             'lightThemes' => [
                 "light",
                 // "dark",
@@ -72,6 +74,8 @@ class HandleInertiaRequests extends Middleware
                 // "coffee",
                 "winter",
             ],
+
+            // 可用暗色主题
             'darkThemes' => [
                 // "light",
                 "dark",
