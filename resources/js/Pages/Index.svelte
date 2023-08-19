@@ -2,4 +2,4 @@
     export { default as layout } from "./Shared/Layout.svelte";
 </script>
 
-主页
+这里还什么都没有。
