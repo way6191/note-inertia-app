@@ -20,7 +20,9 @@
     };
 </script>
 
-<ul class="menu bg-base-200 w-40 hidden lg:block flex-none mr-1">
+<ul
+    class="menu bg-base-200 w-40 hidden lg:block flex-none mr-1 overflow-y-auto"
+>
     <li>
         <a
             href="#"

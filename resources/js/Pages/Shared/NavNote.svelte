@@ -8,7 +8,9 @@
     const activeNote = urls[4];
 </script>
 
-<ul class="menu bg-base-200 w-60 rounded-r-lg hidden sm:block flex-none">
+<ul
+    class="menu bg-base-200 w-60 rounded-r-lg hidden sm:block flex-none overflow-y-auto"
+>
     <li>
         {#if navBook != "空"}
             <a
