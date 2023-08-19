@@ -11,18 +11,24 @@
 <ul
     class="menu bg-base-200 w-60 rounded-r-lg hidden sm:block flex-none overflow-y-auto"
 >
-    <li>
-        {#if navBook != "空"}
-            <a
-                href={route("note.create", { menu: navMenu, book: navBook })}
-                class="flex justify-center text-xs"
-            >
-                <i class="fa-solid fa-plus" />
-            </a>
-        {:else}
-            请先创建分类
-        {/if}
-    </li>
+    {#if $page.props.auth.user}
+        <li>
+            {#if navBook != "空"}
+                <a
+                    href={route("note.create", {
+                        menu: navMenu,
+                        book: navBook,
+                    })}
+                    class="flex justify-center text-xs"
+                >
+                    <i class="fa-solid fa-plus" />
+                </a>
+            {:else}
+                请先创建分类
+            {/if}
+        </li>
+    {/if}
+
     {#each navs as navNote}
         <li>
             <a

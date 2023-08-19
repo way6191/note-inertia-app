@@ -23,15 +23,18 @@
 <ul
     class="menu bg-base-200 w-40 hidden lg:block flex-none mr-1 overflow-y-auto"
 >
-    <li>
-        <a
-            href="#"
-            class="flex justify-center text-xs"
-            on:click={() => (isOpen = true)}
-        >
-            <i class="fa-solid fa-plus" />
-        </a>
-    </li>
+    {#if $page.props.auth.user}
+        <li>
+            <a
+                href="#"
+                class="flex justify-center text-xs"
+                on:click={() => (isOpen = true)}
+            >
+                <i class="fa-solid fa-plus" />
+            </a>
+        </li>
+    {/if}
+
     {#each navs as navBook}
         <li class="text-base">
             <a
@@ -66,11 +69,6 @@
                     placeholder="分类名"
                     class="input input-bordered w-full max-w-xs"
                 />
-                {#if $bookForm.errors.bookName}
-                    <div class="text-xs text-red-500">
-                        {$bookForm.errors.bookName}
-                    </div>
-                {/if}
             </div>
             <button type="submit" class="btn btn-outline">提交</button>
         </div>

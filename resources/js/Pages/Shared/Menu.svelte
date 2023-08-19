@@ -89,21 +89,30 @@
         </div>
 
         <Title />
-
-        <span class="text-xs">way</span>
+        {#if $page.props.auth.user}
+            <span class="text-xs">{$page.props.auth.user.name}</span>
+        {/if}
     </div>
     <div class="navbar-center hidden md:flex">
         <ul class="menu menu-horizontal flex items-end">
             {#each $page.props.menus as menu}
                 <li>
-                    <a href="/note/{menu.menu_name}">{menu.menu_name}</a>
+                    <a href={route("menu.show", { menuName: menu.menu_name })}>
+                        {menu.menu_name}
+                    </a>
                 </li>
             {/each}
-            <li>
-                <a href="#" class="text-xs" on:click={() => (isOpen = true)}>
-                    <i class="fa-solid fa-plus" />
-                </a>
-            </li>
+            {#if $page.props.auth.user}
+                <li>
+                    <a
+                        href="#"
+                        class="text-xs"
+                        on:click={() => (isOpen = true)}
+                    >
+                        <i class="fa-solid fa-plus" />
+                    </a>
+                </li>
+            {/if}
         </ul>
     </div>
     <div class="navbar-end">
@@ -141,11 +150,6 @@
                     placeholder="文档名"
                     class="input input-bordered w-full max-w-xs"
                 />
-                {#if $menuForm.errors.menuName}
-                    <div class="text-xs text-red-500">
-                        {$menuForm.errors.menuName}
-                    </div>
-                {/if}
             </div>
             <button type="submit" class="btn btn-outline">提交</button>
         </div>

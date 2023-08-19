@@ -5,11 +5,20 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\NoteController;
+use App\Http\Controllers\UserController;
 
 // 主页
 Route::get('/', function () {
     return Inertia::render('Index');
 });
+
+// 登录页
+Route::get('/login', [UserController::class, 'login']);
+// 用户认证
+Route::post('/auth', [UserController::class, 'auth'])
+    ->name('login');
+// 用户注销
+Route::get('/logout', [UserController::class, 'logout']);
 
 // 笔记
 Route::prefix('/note')->group(function () {

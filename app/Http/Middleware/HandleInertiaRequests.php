@@ -38,6 +38,11 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request): array
     {
         return array_merge(parent::share($request), [
+            // 登录用户
+            'auth.user' => fn () => $request->user()
+                ? $request->user()->only('name')
+                : null,
+
             // 文档
             'menus' => Menu::select('menu_name')
                 ->get(),
