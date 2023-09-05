@@ -101,7 +101,7 @@
     <title>{navMenu + "/" + navBook + "/" + navNote}</title>
 </svelte:head>
 
-<div id="leftMenu" class="hidden justify-start">
+<div id="leftMenu" class="hidden justify-start md:flex">
     <!-- 文件夹 -->
     <NavBook navs={books} {navMenu} />
 
