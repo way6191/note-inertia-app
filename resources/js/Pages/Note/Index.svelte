@@ -11,6 +11,7 @@
     const urls = decodeURI($page.url).split("/");
     const navMenu = urls[2];
     const navBook = urls[3];
+    const navNote = urls[4];
 
     export let books;
     export let notes;
@@ -90,6 +91,10 @@
             });
     });
 </script>
+
+<svelte:head>
+    <title>{navMenu + "/" + navBook + "/" + navNote}</title>
+</svelte:head>
 
 <!-- 文件夹 -->
 <NavBook navs={books} {navMenu} />
