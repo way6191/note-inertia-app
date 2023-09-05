@@ -68,10 +68,11 @@
 <div class="navbar border-b-2">
     <div class="navbar-start">
         <div class="dropdown">
-            <div class="btn btn-ghost sm:hidden">
+            <div tabindex="0" class="btn btn-ghost sm:hidden">
                 <i class="fa-solid fa-bars" />
             </div>
             <ul
+                tabindex="0"
                 class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
                 {#each $page.props.menus as menu}

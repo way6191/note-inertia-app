@@ -20,9 +20,7 @@
     };
 </script>
 
-<ul
-    class="menu bg-base-200 w-40 hidden lg:block flex-none mr-1 overflow-y-auto"
->
+<ul class="menu bg-base-200 w-40 block flex-none mr-1 overflow-y-auto">
     {#if $page.props.auth.user}
         <li>
             <a

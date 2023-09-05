@@ -90,17 +90,31 @@
                 element.setAttribute("data-tip", ret);
             });
     });
+
+    const openLeftMenu = function () {
+        document.querySelector("#leftMenu").classList.remove("hidden");
+        document.querySelector("#leftMenu").classList.add("flex");
+    };
 </script>
 
 <svelte:head>
     <title>{navMenu + "/" + navBook + "/" + navNote}</title>
 </svelte:head>
 
-<!-- 文件夹 -->
-<NavBook navs={books} {navMenu} />
+<div id="leftMenu" class="hidden justify-start">
+    <!-- 文件夹 -->
+    <NavBook navs={books} {navMenu} />
 
-<!-- 文件 -->
-<NavNote navs={notes} {navMenu} {navBook} />
+    <!-- 文件 -->
+    <NavNote navs={notes} {navMenu} {navBook} />
+</div>
+
+<div
+    class="sm:hidden text-3xl text-primary fixed bottom-4 left-2"
+    on:click={openLeftMenu}
+>
+    <i class="fa-regular fa-circle-right" />
+</div>
 
 <div class="w-full h-full overflow-y-auto p-4">
     <article>

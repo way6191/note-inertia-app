@@ -8,9 +8,7 @@
     const activeNote = urls[4];
 </script>
 
-<ul
-    class="menu bg-base-200 w-60 rounded-r-lg hidden sm:block flex-none overflow-y-auto"
->
+<ul class="menu bg-base-200 w-60 rounded-r-lg block flex-none overflow-y-auto">
     {#if $page.props.auth.user}
         <li>
             {#if navBook != "空"}
