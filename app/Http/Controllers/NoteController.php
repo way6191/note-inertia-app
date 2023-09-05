@@ -27,8 +27,8 @@ class NoteController extends Controller
             ->where('note_name', $noteName)
             ->first();
 
-        $version = date('Y-m-d H:i:s');
-        Inertia::version($version);
+        // $version = date('Y-m-d H:i:s');
+        // Inertia::version($version);
 
         // 展示笔记
         return Inertia::render('Note/Index', [
